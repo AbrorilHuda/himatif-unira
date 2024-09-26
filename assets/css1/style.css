@@ -1,0 +1,49 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+}
+
+.nav-bg {
+    background-color: #212529;
+}
+
+.banner {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../image/himatif.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+
+.alert-modal {
+    display: none; 
+    margin-top: -50px;
+    z-index: 1051;
+}
+
+.text-shadow {
+    text-shadow: 5px 5px 5px grey;
+}
+
+.bg-wave {
+    background-color: #464658;
+}
+
+.about {
+    color: white;
+}
+
+.carousel-contain {
+    background-color: #464658;
+    color: white;
+}

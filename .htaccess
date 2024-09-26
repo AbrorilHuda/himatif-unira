@@ -1,0 +1,22 @@
+RewriteEngine On
+#verif
+RewriteRule ^verification/code=([a-f0-9]{32})$ pages/verification/verif.php?code=$1 [L]
+
+# Redirect untuk blog
+RewriteRule ^blog/$ pages/blog/index.php [L]
+RewriteRule ^blog$ pages/blog/index.php [L]
+RewriteRule ^blog/create$ pages/blog/create_blog.php [L]
+RewriteRule ^blog/detail/([0-9]+)$ pages/blog/detail_blog.php?id=$1 [L]
+RewriteRule ^blog/halaman/([0-9]+)$ pages/blog/index.php?halaman=$1 [L]
+RewriteRule ^blog/edit/([0-9]+)$ pages/blog/edit.php?id=$1 [L]
+RewriteRule ^blog/delete/([0-9]+)$ pages/blog/delete.php?id=$1 [L]
+
+# Redirect untuk login dan register
+RewriteRule ^login$ auth/login.php [L]
+RewriteRule ^register$ auth/register.php [L]
+
+# Aturan umum untuk menangani permintaan lainnya
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
