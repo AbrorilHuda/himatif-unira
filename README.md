@@ -30,6 +30,10 @@ masih berkondinator
 
 untuk contributor silah patuhi peraturan di github.
 
+## get startet
+
+untuk kalian yang ingin mencoba di root folder kalian buat folder `public` dan di dalamnya buat folder `img` untuk menyimpan gambar hasil dari upload blog
+
 ## License
 
 [MIT license](https://opensource.org/licenses/MIT).
