@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../vendor/PHPMailer/src/Exception.php';
 require '../vendor/PHPMailer/src/PHPMailer.php';
 require '../vendor/PHPMailer/src/SMTP.php';
@@ -7,38 +7,38 @@ require '../vendor/PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+
 $mail = new PHPMailer(true);
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $user = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $user = $_POST['username'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  include "db.php";
 
-    include "db.php";
-    
-    $code = md5($username.date('y-m-d h:i:s'));
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->SMTPDebug = SMTP::DEBUG_OFF;
-        $mail->Username = 'zulfikrimoba@gmail.com';
-        $mail->Password = 'vettnctydgfvgoup';
-        $mail->Port = 587;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-      
-        // Atur pengirim email
-        $mail->setFrom('himatif@unira.org', 'Himatif');
-        // Atur penerima email
-        $mail->addAddress($email, 'Penerima email');
-      
-        // Isi email
-        $mail->isHTML(true);
-        // Atur subjek
-        $mail->Subject = 'Email verifikasi';
-        // Atur body
-        $messageHtml = '
+  $code = md5($username . date('y-m-d h:i:s'));
+  try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->Username = 'zulfikrimoba@gmail.com';
+    $mail->Password = 'vettnctydgfvgoup';
+    $mail->Port = 587;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
+    // Atur pengirim email
+    $mail->setFrom('himatif@unira.org', 'Himatif');
+    // Atur penerima email
+    $mail->addAddress($email, 'Penerima email');
+
+    // Isi email
+    $mail->isHTML(true);
+    // Atur subjek
+    $mail->Subject = 'Email verifikasi';
+    // Atur body
+    $messageHtml = '
         <!DOCTYPE html>
 <html
   lang="en"
@@ -116,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                           font-family: Arial, sans-serif;
                         "
                       >
-                        Hay Dear 🖐 ' .$user. '
+                        Hay Dear 🖐 ' . $user . '
                       </h1>
                       <p
                         style="
@@ -129,10 +129,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         terima kasih telah mendaftar di website himpunan
                         mahasiswa informatika universitas madura tekan tombol di
                         bawah ini untuk memverifikasi akun anda. jika ada
-                        masalah di tombol bisa pakek <a href="http://himatif.test/verification/code=' .$code. '">disini</a>
+                        masalah di tombol bisa pakek <a href="http://himatif.test/verification/code=' . $code . '">disini</a>
                       </p>
                         <a
-                          href="http://himatif.test/verification/code=' .$code. '"
+                          href="http://himatif.test/verification/code=' . $code . '"
                           style="
                             color: #fff;
                             text-decoration: none;
@@ -233,25 +233,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
 
-// "terima kasih $user telah mendaftar, link verifikasi kamu ini <a href='http://localhost:80/pages/verification/verif.php?code=$code'>verification now</a>"
+    // "terima kasih $user telah mendaftar, link verifikasi kamu ini <a href='http://localhost:80/pages/verification/verif.php?code=$code'>verification now</a>"
 
 
 
-        $mail->Body = $messageHtml;
-      
-        if($mail->send()){
-            $query = mysqli_query($connect,"INSERT INTO user (username,email,password,create_at,verification_code,is_verifica) VALUES('$user','$email','$password',CURRENT_TIMESTAMP(),'$code',0)");
+    $mail->Body = $messageHtml;
 
-         ?>
-      <script>alert("pendaftaran berhasil, tolong cek email untuk verifikasi"); window.location = "../auth/login.php"</script>
-
-<?php
-          
-      
-        }
-      
-      } catch (Exception $e) {
-        echo "PHPMailer Error: {$mail->ErrorInfo}";
-      }
-
+    if ($mail->send()) {
+      $query = mysqli_query($connect, "INSERT INTO user (username,email,password,create_at,verification_code,is_verifica) VALUES('$user','$email','$password',CURRENT_TIMESTAMP(),'$code',0)");
+      $_SESSION['status'] = 'success';
+      echo "succes";
+      header("Location: /register");
+      exit();
     }
+  } catch (Exception $e) {
+    echo "PHPMailer Error: {$mail->ErrorInfo}";
+  }
+}

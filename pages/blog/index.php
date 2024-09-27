@@ -239,7 +239,7 @@ include_once "../../config/db.php";
 
         <script>
             // Validasi formulir sebelum mengirimkan data
-        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function() {
                 var form = document.getElementById('blogForm');
                 form.addEventListener('submit', function(event) {
                     var title = document.getElementById('title').value.trim();
@@ -252,27 +252,27 @@ include_once "../../config/db.php";
                 });
             });
 
-    function confirmDelete(id) {
-        Swal.fire({
-  title: "Apakah Anda Yakin?",
-  text: "Content ini akan di hapus secara permanen!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "ya, hapus!"
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-      title: "dihapus",
-      text: "content telah berhasil di hapus",
-      icon: "success"
-    }).then(() => {
-      window.location.href = "blog/delete/" + id;
-    });
-  }
-});
-}
+            function confirmDelete(id) {
+                Swal.fire({
+                    title: "Apakah Anda Yakin?",
+                    text: "Content ini akan di hapus secara permanen!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "ya, hapus!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "dihapus",
+                            text: "content telah berhasil di hapus",
+                            icon: "success"
+                        }).then(() => {
+                            window.location.href = "blog/delete/" + id;
+                        });
+                    }
+                });
+            }
         </script>
 </body>
 
