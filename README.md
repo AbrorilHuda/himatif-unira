@@ -28,7 +28,7 @@ masih berkondinator
   <img src="https://contrib.rocks/image?repo=abrordc/himatif-unira" />
 </a>
 
-untuk contributor silah patuhi peraturan di github.
+untuk contributor silah patuhi peraturan di github dan pull request.
 
 ## Getting Started
 
