@@ -1,5 +1,15 @@
 <?php
 session_start();
+// env prosess
+$envfile = file("../.env");
+foreach ($envfile as $line) {
+  if (strpos($line, '=') !== false) {
+    list($key, $value) = explode('=', $line);
+    putenv("$key=$value");
+  }
+}
+
+// prosess email dan mailer
 require '../vendor/PHPMailer/src/Exception.php';
 require '../vendor/PHPMailer/src/PHPMailer.php';
 require '../vendor/PHPMailer/src/SMTP.php';
@@ -23,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->SMTPDebug = SMTP::DEBUG_OFF;
-    $mail->Username = 'zulfikrimoba@gmail.com';
-    $mail->Password = 'vettnctydgfvgoup';
+    $mail->Username = getenv('SMTP');
+    $mail->Password = getenv('PASSWORD');
     $mail->Port = 587;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 

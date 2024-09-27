@@ -32,7 +32,7 @@ untuk contributor silah patuhi peraturan di github.
 
 ## get startet
 
-untuk kalian yang ingin mencoba di root folder kalian buat folder `public` dan di dalamnya buat folder `img` untuk menyimpan gambar hasil dari upload blog
+untuk kalian yang ingin mencoba di root folder kalian buat folder `public` dan di dalamnya buat folder `img` untuk menyimpan gambar hasil dari upload blog setelah itu buka terminal dan ketik perintah `cp .env.example .env`
 
 ## License
 
