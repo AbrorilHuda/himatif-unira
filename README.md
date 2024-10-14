@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/himatifUnira" target="_blank"><img src="https://raw.githubusercontent.com/abrordc/himatif-unira/refs/heads/main/assets/image/hima.jpeg" style="width: 200px" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://github.com/himatifUnira" target="_blank"><img src="https://raw.githubusercontent.com/abrordc/himatif-unira/refs/heads/main/assets/image/hima.png" style="width: 200px" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href=""></a>

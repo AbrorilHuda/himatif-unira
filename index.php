@@ -29,7 +29,7 @@ session_start();
   <nav class="navbar navbar-expand-lg nav-bg navbar-dark sticky-top">
     <div class="container-fluid d-flex">
       <span class="navbar-brand h1 mb-0">
-        <img src="assets/image/hima.jpeg" alt="logo-hima" width="50px" class="d-inline-block align-text-center">
+        <img src="assets/image/hima.png" alt="logo-hima" width="50px" class="d-inline-block align-text-center">
         HIMATIF</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
