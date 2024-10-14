@@ -252,7 +252,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($mail->send()) {
       $query = mysqli_query($connect, "INSERT INTO user (username,email,password,create_at,verification_code,is_verifica) VALUES('$user','$email','$password',CURRENT_TIMESTAMP(),'$code',0)");
       $_SESSION['status'] = 'success';
-      echo "succes";
       header("Location: /register");
       exit();
     }

@@ -11,6 +11,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@ session_start();
   <nav class="navbar navbar-expand-lg nav-bg navbar-dark sticky-top">
     <div class="container-fluid d-flex">
       <span class="navbar-brand h1 mb-0">
-        <img src="assets/image/hima.png" alt="logo-hima" width="50px" class="d-inline-block align-text-center">
+        <img src="assets/image/hima.jpeg" alt="logo-hima" width="50px" class="d-inline-block align-text-center">
         HIMATIF</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -438,9 +439,9 @@ session_start();
   <div class="container-fluid py-5">
     <div class="container">
       <h2 class="text-center mb-5">Top Tier Anggota
-      <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" title="Info" data-bs-content="top tier ini di nilai dari ke aktifan anggota dalam publikasi blog yang tentunya sudah lulus review dan disetujui untuk top tier akan otomatis berubah setiap minggunya sesuai dengan jumlah publikasi anggota">
-        <button class="btn btn-warning" type="button" disabled>?</button>
-      </span>
+        <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" title="Info" data-bs-content="top tier ini di nilai dari ke aktifan anggota dalam publikasi blog yang tentunya sudah lulus review dan disetujui untuk top tier akan otomatis berubah setiap minggunya sesuai dengan jumlah publikasi anggota">
+          <button class="btn btn-warning" type="button" disabled>?</button>
+        </span>
       </h2>
       <div class="table-responsive">
         <table class="table table-dark table-striped table-hover table-borderless table-bordered border-light">
@@ -474,7 +475,7 @@ session_start();
               </td>
             </tr>
             <tr>
-            <th>2</th>
+              <th>2</th>
               <td>miftadek</td>
               <td>kanfok</td>
               <td>1</td>
