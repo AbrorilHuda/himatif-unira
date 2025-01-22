@@ -34,14 +34,20 @@ include_once "../../config/db.php";
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#!">Blog</a>
+            <a class="navbar-brand" href="/">Blog HIMATIF</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item <?= (empty($_SESSION['username']) ? "d-inline" : "d-none") ?>"><a class="nav-link" href="/login">login</a></li>
                     <li class="nav-item <?= (empty($_SESSION['username']) ? "d-none" : "d-inline") ?>"><a class="nav-link" href="blog/create">Buat Blog</a></li>
+                    <li class="nav-item  dropdown <?= (empty($_SESSION['username']) ? "d-none" : "d-inline") ?>">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, <i class="bi bi-person-circle"></i> <?= $_SESSION['username'] ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-danger" href="auth/logout.php"><i class="bi bi-box-arrow-right"></i> logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -121,7 +127,7 @@ include_once "../../config/db.php";
                     <div class="col-12 col-lg-6 col-xl-5">
                         <img class="img-fluid rounded" loading="lazy" src="../../assets/image/himatif.jpeg" alt="About 1">
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-7">
+                    <div class="col-12 col-lg-6 col-xl-7" id="about">
                         <div class="row justify-content-xl-center">
                             <div class="col-12 col-xl-11">
                                 <h2 class="mb-3">About Us</h2>

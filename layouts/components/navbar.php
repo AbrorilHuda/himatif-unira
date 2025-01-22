@@ -17,7 +17,7 @@
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
           <a class="nav-link text-white font-weight-bold px-0">
-            <?= $_SESSION["username"] ?> <i class="bi bi-person-circle fs-5"></i>
+            <i class="bi bi-person-circle fs-5"></i> <?= $_SESSION["username"] ?>
           </a>
         </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

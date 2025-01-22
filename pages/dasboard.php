@@ -51,7 +51,7 @@ $result4 = mysqli_fetch_array($verifikasi);
                 </h5>
                 <p class="mb-0">
                   <span class="text-success text-sm font-weight-bolder"></span>
-                  active
+                  <a href="/blog"><i class="bi bi-eye"></i> view</a>
                 </p>
               </div>
             </div>
@@ -72,7 +72,7 @@ $result4 = mysqli_fetch_array($verifikasi);
               <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Pendaftar Baru</p>
                 <h5 class="font-weight-bolder">
-                <?= $result4['verif'] ?>
+                  <?= $result4['verif'] ?>
                 </h5>
                 <p class="mb-0">
                   <span class="text-danger text-sm font-weight-bolder"></span>
