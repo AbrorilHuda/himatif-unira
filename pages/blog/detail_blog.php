@@ -1,10 +1,10 @@
 <?php
 include_once '../../config/db.php';
 
-if (isset($_GET['id'])) {
-    $blog_id = intval($_GET['id']);
+if (isset($_GET['slug'])) {
+    $slug = $_GET["slug"];
 
-    $query = mysqli_query($connect, "SELECT b.*, u.username FROM blog as b INNER JOIN user as u ON b.created_by = u.id WHERE b.id = $blog_id");
+    $query = mysqli_query($connect, "SELECT b.*, u.username FROM blog as b INNER JOIN user as u ON b.created_by = u.id WHERE b.slug = '$slug'");
     if (mysqli_num_rows($query) > 0) {
         $blog = mysqli_fetch_assoc($query);
     } else {
@@ -27,9 +27,9 @@ if (isset($_GET['id'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Blog</a>
+            <h1 class="navbar-brand">Detail Blog</h1>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="btn btn-outline-light" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="btn btn-outline-light" href="/blog">Home</a></li>
             </ul>
         </div>
     </nav>

@@ -23,6 +23,7 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['edit'])) {
     $judul = htmlspecialchars($_POST['judul']);
+    $slug = strtolower(str_replace(' ', '-', $judul));
     $konten = htmlspecialchars($_POST['konten']);
     $imageLama = htmlspecialchars($_POST['imageLama']);
 
@@ -56,7 +57,7 @@ if (isset($_POST['edit'])) {
         $image = $imageLama;
     }
 
-    $query = "UPDATE blog SET judul = '$judul', konten = '$konten', image = '$image'
+    $query = "UPDATE blog SET judul = '$judul',slug = '$slug', konten = '$konten', image = '$image'
                 WHERE id = $id AND created_by = $user_id";
     $sukses = mysqli_query($connect, $query);
 

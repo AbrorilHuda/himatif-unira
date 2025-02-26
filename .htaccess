@@ -6,7 +6,7 @@ RewriteRule ^verification/code=([a-f0-9]{32})$ pages/verification/verif.php?code
 RewriteRule ^blog/$ pages/blog/index.php [L]
 RewriteRule ^blog$ pages/blog/index.php [L]
 RewriteRule ^blog/create$ pages/blog/create_blog.php [L]
-RewriteRule ^blog/detail/([0-9]+)$ pages/blog/detail_blog.php?id=$1 [L]
+RewriteRule ^blog/detail/([^/]+)$ pages/blog/detail_blog.php?slug=$1 [L]
 RewriteRule ^blog/halaman/([0-9]+)$ pages/blog/index.php?halaman=$1 [L]
 RewriteRule ^blog/edit/([0-9]+)$ pages/blog/edit.php?id=$1 [L]
 RewriteRule ^blog/delete/([0-9]+)$ pages/blog/delete.php?id=$1 [L]

@@ -44,14 +44,14 @@ $blog = mysqli_query($connect, "SELECT b.*, u.username FROM blog b JOIN user u O
     <?php foreach ($blog as $b) : ?>
         <div class="col-lg-6">
             <div class="card border-primary mb-4">
-                <a href="detail_blog.php?id=<?= $b['id']; ?>"><img class="card-img-top" src="../../public/img/<?= htmlspecialchars($b['image']) ?>" alt="Gambar Blog" style="width: 100%; height: 200px; object-fit: cover;" /></a>
+                <a href="blog/detail/<?= $b['slug']; ?>"><img class="card-img-top" src="../../public/img/<?= htmlspecialchars($b['image']) ?>" alt="Gambar Blog" style="width: 100%; height: 200px; object-fit: cover;" /></a>
                 <div class="card-body">
                     <div class="small text-muted">
                         <?= date('F d, Y', strtotime($b['created_at'])); ?> by <?php echo htmlspecialchars($b['username']); ?>
                     </div>
                     <h2 class="card-title"><?= htmlspecialchars($b['judul']) ?></h2>
                     <p class="card-text"><?= htmlspecialchars(substr($b['konten'], 0, 30)) ?>...</p>
-                    <a class="btn btn-primary" href="blog/detail/<?= $b['id']; ?>">Selengkapnya →</a>
+                    <a class="btn btn-primary" href="blog/detail/<?= $b['slug']; ?>">Selengkapnya →</a>
                     <?php if ($b['created_by'] == $user_id) : ?>
                         <a class="btn btn-warning" href="blog/edit/<?= $b['id']; ?>">Edit</a>
                     <?php endif; ?>

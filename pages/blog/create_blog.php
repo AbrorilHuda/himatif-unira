@@ -10,6 +10,7 @@ require '../../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars($_POST['title']);
+    $slug = strtolower(str_replace(' ', '-', $title));
     $content = htmlspecialchars($_POST['konten']);
     $created_by = $_SESSION['id'];
 
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filePath = '../../public/img/' . $namaFileBaru;
     move_uploaded_file($tmpName, $filePath);
 
-    $query = "INSERT INTO blog (judul, konten, image, created_by) VALUES ('$title', '$content', '$namaFileBaru', '$created_by')";
+    $query = "INSERT INTO blog (judul,slug, konten, image, created_by) VALUES ('$title','$slug', '$content', '$namaFileBaru', '$created_by')";
     $result = mysqli_query($connect, $query);
 
     if ($result) {

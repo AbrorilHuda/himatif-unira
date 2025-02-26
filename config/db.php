@@ -1,14 +1,14 @@
 <?php
 
-// $hostname = "localhost";
-// $username = "root";
-// $pass = "";
-// $dbname = "himatif_test";
+$hostname = "localhost";
+$username = "root";
+$pass = "";
+$dbname = "himatif_test";
 
-$hostname = "sql103.infinityfree.com";
-$username = "if0_38152781";
-$pass = "himatif2024";
-$dbname = "if0_38152781_himatif";
+// $hostname = "sql103.infinityfree.com";
+// $username = "if0_38152781";
+// $pass = "himatif2024";
+// $dbname = "if0_38152781_himatif";
 
 $connect = mysqli_connect($hostname, $username, $pass, $dbname);
 
